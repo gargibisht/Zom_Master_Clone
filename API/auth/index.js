@@ -29,7 +29,7 @@ Router.post("/signup", async(req, res) => {
             return res.json({ error: "User Already Exists" });
         }
 
-        /* //hashing and salting
+        //hashing and salting
         const bcryptSalt = await bcrypt.genSalt(8);
 
         const hashedPassword = await bcrypt.hash(password, bcryptSalt);
@@ -45,7 +45,7 @@ Router.post("/signup", async(req, res) => {
 
         return res.status(200).json({ token });
 
-*/
+
     } catch (error) {
         return res.status(500).json({ error: error.message });
     }
