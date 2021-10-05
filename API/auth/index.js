@@ -21,14 +21,7 @@ Router.post("/signup", async(req, res) => {
     try {
         const { email, password, fullName, phoneNumber } = req.body.credentials;
 
-        //check whether email or phone number exists
-        const checkUserByEmail = await UserModel.findOne({ email });
-        const checkUserByPhone = await UserModel.findOne({ phoneNumber });
-
-        if (checkUserByEmail || checkUserByPhone) {
-            return res.json({ error: "User Already Exists" });
-        }
-
+        await UserModel.findEmailAndPhone(email, phoneNumber);
         //hashing and salting
         const bcryptSalt = await bcrypt.genSalt(8);
 
