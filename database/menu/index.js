@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MenuSchema = new mongoose.SchemaTypes({
+const MenuSchema = new mongoose.Schema({
     menus: [{ //array of objects that's why in []
         name: { type: String, required: true },
         items: [{
